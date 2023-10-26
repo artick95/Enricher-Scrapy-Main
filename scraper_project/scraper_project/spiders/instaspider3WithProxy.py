@@ -10,7 +10,7 @@ class InstaSpider(scrapy.Spider):
     custom_settings = {
         'DOWNLOAD_DELAY': 3,
         'DOWNLOAD_TIMEOUT': 30,
-        'CONCURRENT_REQUESTS': 5,
+        'CONCURRENT_REQUESTS': 20,
         'RETRY_ENABLED': True,
         'RETRY_TIMES': 2,
         'DEFAULT_REQUEST_HEADERS': {

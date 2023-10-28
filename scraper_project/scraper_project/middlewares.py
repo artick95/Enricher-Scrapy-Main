@@ -101,3 +101,12 @@ class ScraperProjectDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+from scrapy.http import TextResponse
+
+class BlockMediaMiddleware:
+    def process_request(self, request, spider):
+        media_extensions = ['.jpg', '.jpeg', '.png', '.mp4', '.webm', '.gif']
+        if any(request.url.endswith(ext) for ext in media_extensions):
+            return TextResponse(url=request.url, body='', encoding='utf-8')
+        return None

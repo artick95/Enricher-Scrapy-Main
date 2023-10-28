@@ -5,12 +5,10 @@ import re
 class InstaSpider(scrapy.Spider):
     name = 'instaspider'
     
-    start_urls = [line.strip() for line in open('urls.txt').readlines()]
+    start_urls = [line.strip() for line in open('urlsPart2.txt').readlines()]
 
     custom_settings = {
-        'DOWNLOAD_DELAY': 3,
-        'DOWNLOAD_TIMEOUT': 30,
-        'CONCURRENT_REQUESTS': 20,
+        'CONCURRENT_REQUESTS': 30,
         'RETRY_ENABLED': True,
         'RETRY_TIMES': 2,
         'DEFAULT_REQUEST_HEADERS': {

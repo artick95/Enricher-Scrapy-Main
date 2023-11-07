@@ -8,9 +8,9 @@ class InstaSpider(scrapy.Spider):
     start_urls = [line.strip() for line in open('urlsPart2.txt').readlines()]
 
     custom_settings = {
-        'CONCURRENT_REQUESTS': 30,
+        'CONCURRENT_REQUESTS': 50,
         'RETRY_ENABLED': True,
-        'RETRY_TIMES': 2,
+        'RETRY_TIMES': 1,
         'DEFAULT_REQUEST_HEADERS': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36'
         }
@@ -19,8 +19,9 @@ class InstaSpider(scrapy.Spider):
     def start_requests(self):
         for url in self.start_urls:
             yield scrapy.Request(url, callback=self.parse, meta={
-                'proxy': 'http://artick:mikeislao_country-us_streaming-1@geo.iproyal.com:12321'
+                'proxy': 'http://Q8EAwx7qNNRv:9IXTgeMKOh@65.109.79.15:25006'
             })
+            
 
     def parse(self, response):
         le = LinkExtractor(allow=(r'instagram\.com', r'linkedin\.com', r'whatsapp\.com', r'twitter\.com', r'youtube\.com', r'mailto:', r'tel:'))

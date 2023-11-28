@@ -5,7 +5,7 @@ import re
 class InstaSpider(scrapy.Spider):
     name = 'instaspider'
     
-    start_urls = [line.strip() for line in open('urlsPart2.txt').readlines()]
+    start_urls = [line.strip() for line in open('urls.txt').readlines()]
 
     custom_settings = {
         'CONCURRENT_REQUESTS': 10,
@@ -19,7 +19,7 @@ class InstaSpider(scrapy.Spider):
     def start_requests(self):
         for url in self.start_urls:
             yield scrapy.Request(url, callback=self.parse, meta={
-                'proxy': 'http://lte9:gkm3c5ps1T@51.15.15.230:24005'
+                'proxy': 'http://lte5:Zto0DeRKC0@51.15.15.230:24005'
             })
             
 
